@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { Montserrat_Alternates } from "next/font/google";
 import Image from "next/image";
-
 import {
   Accordion,
   AccordionItem,
@@ -17,166 +16,125 @@ import {
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import Navbar from "@/components/Navbar";
+import ProductCard from "@/components/ProductCard";
+import plants from "@/data/plants.json";
 
 const montserrat = Montserrat_Alternates({ subsets: ["latin"], weight: ["700"] });
 
 export default function Component() {
   return (
     <div className={montserrat.className}>
-      <div className="flex min-h-screen w-full bg-background ">
-        <div className="hidden w-64 flex-col border-r bg-background p-4 md:flex">
-          <div className="mb-6 flex items-center">
-            <Link href="#" className="flex items-center gap-2" prefetch={false}>
-              <Image src="/rutugandh.svg" width={300} height={300} alt="rutugandh" />{" "}
-            </Link>
-          </div>
-          <div className="flex-1 space-y-4">
-            <div>
-              <h3 className="mb-2 text-sm font-medium">Filter</h3>
-              <div className="space-y-2">
-                <Accordion type="single" collapsible>
-                  <AccordionItem value="category">
-                    <AccordionTrigger className="text-base">Category</AccordionTrigger>
-                    <AccordionContent>
-                      <div className="grid gap-2">
-                        <Label className="flex items-center gap-2 font-normal">
-                          <Checkbox />
-                          Plants
-                        </Label>
-                        <Label className="flex items-center gap-2 font-normal">
-                          <Checkbox />
-                          Pots
-                        </Label>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <Accordion type="single" collapsible>
-                  <AccordionItem value="price">
-                    <AccordionTrigger className="text-base">Price</AccordionTrigger>
-                    <AccordionContent>
-                      <div className="grid gap-2">
-                        <Label className="flex items-center gap-2 font-normal">
-                          <Checkbox />
-                          ₹0 - ₹50
-                        </Label>
-                        <Label className="flex items-center gap-2 font-normal">
-                          <Checkbox />
-                          ₹50 - ₹100
-                        </Label>
-                        <Label className="flex items-center gap-2 font-normal">
-                          <Checkbox />
-                          ₹100 - ₹500
-                        </Label>
-                        <Label className="flex items-center gap-2 font-normal">
-                          <Checkbox />
-                          ₹500+
-                        </Label>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-                <Accordion type="single" collapsible>
-                  <AccordionItem value="rating">
-                    <AccordionTrigger className="text-base">Rating</AccordionTrigger>
-                    <AccordionContent>
-                      <div className="grid gap-2">
-                        <Label className="flex items-center gap-2 font-normal">
-                          <Checkbox />4 stars and above
-                        </Label>
-                        <Label className="flex items-center gap-2 font-normal">
-                          <Checkbox />3 stars and above
-                        </Label>
-                        <Label className="flex items-center gap-2 font-normal">
-                          <Checkbox />2 stars and above
-                        </Label>
-                        <Label className="flex items-center gap-2 font-normal">
-                          <Checkbox />1 star and above
-                        </Label>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
-              </div>
-            </div>
-            <div>
-              <h3 className="mb-2 text-sm font-medium">Sort</h3>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="w-full">
-                    <ArrowUpDownIcon className="mr-2 h-4 w-4" />
-                    Sort by
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="start">
-                  <DropdownMenuRadioGroup value="featured">
-                    <DropdownMenuRadioItem value="featured">Featured</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="newest">Newest</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="low">Price: Low to High</DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="high">Price: High to Low</DropdownMenuRadioItem>
-                  </DropdownMenuRadioGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-          </div>
+      <div>
+        <div className="position:absolute">
+          <Navbar />
         </div>
-        <div className="flex-1">
-          <header className="sticky py-12 px-10 z-10 flex items-center justify-between border-b bg-background ">
-            <Link href="/" className="text-muted-foreground hover:text-foreground" prefetch={true}>
-              Home
-            </Link>
-            <div className="relative flex-1 max-w-md">
-              <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search products"
-                className="w-full rounded-lg bg-muted pl-8"
-              />
-            </div>
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="icon">
-                <ShoppingCartIcon className="h-5 w-5" />
-                <span className="sr-only">Cart</span>
-              </Button>
-              <Button variant="ghost" size="icon">
-                <MailsIcon className="h-5 w-5" />
-                <span className="sr-only">Notifications</span>
-              </Button>
-              <Button variant="ghost" size="icon">
-                <UserIcon className="h-5 w-5" />
-                <span className="sr-only">Account</span>
-              </Button>
-            </div>
-          </header>
-          <main className="grid grid-cols-1 gap-6 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-6">
-            <div className="relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out group hover:shadow-xl hover:-translate-y-2">
-              <Link href="#" className="absolute inset-0 z-10" prefetch={false}>
-                <span className="sr-only">View</span>
-              </Link>
-              <img
-                src="/plant.png"
-                alt="Product 1"
-                width={500}
-                height={400}
-                className="object-contain w-full h-64"
-              />
-              <div className="p-4 bg-background">
-                <h3 className="text-xl font-bold">Classic Leather Shoes</h3>
-                <p className="text-sm text-muted-foreground">Elegant and comfortable</p>
-                <div className="flex items-center justify-between">
-                  <h4 className="text-lg font-semibold">$59.99</h4>
-                  <Button variant="ghost" size="icon">
-                    <HeartIcon className="h-5 w-5" />
-                    <span className="sr-only">Favorite</span>
-                  </Button>
+        <div className="flex">
+          <div className="hidden w-64 flex-col border-r bg-background p-4 md:flex">
+            <div className="mb-6 flex items-center"></div>
+            <div className="flex-1 space-y-4">
+              <div>
+                <h3 className="mb-2 text-lg font-medium">Filter</h3>
+                <div className="space-y-2">
+                  <Accordion type="single" collapsible>
+                    <AccordionItem value="category">
+                      <AccordionTrigger className="text-base">Category</AccordionTrigger>
+                      <AccordionContent>
+                        <div className="grid gap-2">
+                          <Label className="flex items-center gap-2 font-normal">
+                            <Checkbox />
+                            Plants
+                          </Label>
+                          <Label className="flex items-center gap-2 font-normal">
+                            <Checkbox />
+                            Pots
+                          </Label>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                  <Accordion type="single" collapsible>
+                    <AccordionItem value="price">
+                      <AccordionTrigger className="text-base">Price</AccordionTrigger>
+                      <AccordionContent>
+                        <div className="grid gap-2">
+                          <Label className="flex items-center gap-2 font-normal">
+                            <Checkbox />
+                            ₹0 - ₹50
+                          </Label>
+                          <Label className="flex items-center gap-2 font-normal">
+                            <Checkbox />
+                            ₹50 - ₹100
+                          </Label>
+                          <Label className="flex items-center gap-2 font-normal">
+                            <Checkbox />
+                            ₹100 - ₹500
+                          </Label>
+                          <Label className="flex items-center gap-2 font-normal">
+                            <Checkbox />
+                            ₹500+
+                          </Label>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                  <Accordion type="single" collapsible>
+                    <AccordionItem value="rating">
+                      <AccordionTrigger className="text-base">Rating</AccordionTrigger>
+                      <AccordionContent>
+                        <div className="grid gap-2">
+                          <Label className="flex items-center gap-2 font-normal">
+                            <Checkbox />4 stars and above
+                          </Label>
+                          <Label className="flex items-center gap-2 font-normal">
+                            <Checkbox />3 stars and above
+                          </Label>
+                          <Label className="flex items-center gap-2 font-normal">
+                            <Checkbox />2 stars and above
+                          </Label>
+                          <Label className="flex items-center gap-2 font-normal">
+                            <Checkbox />1 star and above
+                          </Label>
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </div>
               </div>
+              <div>
+                <h3 className="mb-2 text-sm font-medium">Sort</h3>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="w-full">
+                      <ArrowUpDownIcon className="mr-2 h-4 w-4" />
+                      Sort by
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start">
+                    <DropdownMenuRadioGroup value="featured">
+                      <DropdownMenuRadioItem value="featured">Featured</DropdownMenuRadioItem>
+                      <DropdownMenuRadioItem value="newest">Newest</DropdownMenuRadioItem>
+                      <DropdownMenuRadioItem value="low">Price: Low to High</DropdownMenuRadioItem>
+                      <DropdownMenuRadioItem value="high">Price: High to Low</DropdownMenuRadioItem>
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </div>
-          </main>
+          </div>
+          <div className="flex-1">
+            <main className="grid grid-cols-1 gap-6 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-6">
+              {plants.map((plant) => (
+                <ProductCard
+                  title={plant.title}
+                  description={plant.description}
+                  price={plant.price}
+                />
+              ))}
+            </main>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Rose",
+    "description": "A beautiful, fragrant flowering plant.",
+    "price": "₹10.99"
+  },
+  {
+    "title": "Tulip",
+    "description": "A bright, colorful bulbous plant.",
+    "price": "₹8.5"
+  },
+  {
+    "title": "Orchid",
+    "description": "An exotic plant with intricate flowers.",
+    "price": "₹15.75"
+  },
+  {
+    "title": "Sunflower",
+    "description": "A tall plant with large, sunny yellow blooms.",
+    "price": "₹5.99"
+  },
+  {
+    "title": "Lavender",
+    "description": "A fragrant herb known for its calming scent.",
+    "price": "₹12.0"
+  },
+  {
+    "title": "Bamboo",
+    "description": "A fast-growing plant with slender, tall stalks.",
+    "price": "₹20.0"
+  },
+  {
+    "title": "Aloe Vera",
+    "description": "A succulent plant known for its medicinal properties.",
+    "price": "₹7.5"
+  },
+  {
+    "title": "Cactus",
+    "description": "A hardy plant adapted to arid environments.",
+    "price": "₹9.99"
+  },
+  {
+    "title": "Fern",
+    "description": "A lush, green plant with feathery leaves.",
+    "price": "₹6.75"
+  },
+  {
+    "title": "Bonsai",
+    "description": "A miniature tree cultivated for aesthetic purposes.",
+    "price": "₹25.0"
+  }
+]
