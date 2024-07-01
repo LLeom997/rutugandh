@@ -7,6 +7,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Component() {
   const [cart, setCart] = useState([
@@ -45,7 +46,7 @@ export default function Component() {
       <div className="grid gap-8">
         {cart.map((item) => (
           <div key={item.id} className="grid grid-cols-[100px_1fr_100px] items-center gap-4">
-            <img
+            <Image
               src="/rutugandh.svg"
               alt={item.title}
               width={100}

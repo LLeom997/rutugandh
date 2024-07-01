@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function page() {
   const savedProducts = [
@@ -43,7 +44,7 @@ export default function page() {
             {savedProducts.map((product) => (
               <li key={product.id} className="border rounded-lg overflow-hidden group">
                 <div className="relative">
-                  <img
+                  <Image
                     src="/plant.png"
                     alt={product.title}
                     width={400}

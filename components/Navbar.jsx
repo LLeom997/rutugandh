@@ -12,13 +12,13 @@ const Navbar = () => {
     <>
       <div className={montserrat.className}>
         <header className="flex items-center justify-between py-3 border-b bg-background sm:px-6">
-          <Link href="/" className="flex items-center gap-2" prefetch={false}>
+          <Link href="/" className="flex items-center gap-2" prefetch={true}>
             <div className="hover:-translate-y-0.5 hover:translate-x-0.5 ">
               <Image src="/rutugandh.svg" width="200" height="200" alt="Acme Inc" />
             </div>
           </Link>
           <nav className="hidden md:flex items-center gap-36 text-l">
-            <Link href="/" className="text-muted-foreground hover:text-foreground" prefetch={false}>
+            <Link href="/" className="text-muted-foreground hover:text-foreground" prefetch={true}>
               Home
             </Link>
             <Link
@@ -30,13 +30,13 @@ const Navbar = () => {
             <Link
               href="/plants"
               className="text-muted-foreground hover:text-foreground"
-              prefetch={false}>
+              prefetch={true}>
               Pots
             </Link>
             <Link
               href="/plants"
               className="text-muted-foreground hover:text-foreground"
-              prefetch={false}>
+              prefetch={true}>
               All Products
             </Link>
             <div>
@@ -49,17 +49,17 @@ const Navbar = () => {
             </div>
           </nav>
           <div className="flex items-center gap-16">
-            <Link href="./bag">
+            <Link href="./bag" prefetch={true}>
               <Button variant="ghost" size="icon" className="rounded-full">
                 <Image src="/bag.svg" width="32" height="32" alt="Avatar" />
               </Button>
             </Link>
-            <Link href="./saved">
+            <Link href="./saved" prefetch={true}>
               <Button variant="ghost" size="icon">
                 <Image src="/liked.svg" width="32" height="32" alt="Avatar" />
               </Button>
             </Link>
-            <Link href="./profile">
+            <Link href="./profile" prefetch={true}>
               <Button variant="ghost" size="icon">
                 <Image src="/profile.svg" width="32" height="32" alt="Avatar" />
               </Button>

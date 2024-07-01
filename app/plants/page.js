@@ -128,6 +128,7 @@ export default function Component() {
             <main className="grid grid-cols-1 gap-6 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-6">
               {plants.map((plant) => (
                 <ProductCard
+                  key={plant.id}
                   title={plant.title}
                   description={plant.description}
                   price={plant.price}

@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const ProductCard = ({ title, description, price }) => {
   return (
     <div className="relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out group hover:shadow-xl hover:-translate-y-2">
-      <img
+      <Image
         src={"/plant.png"}
         alt="Product 1"
         width={500}
